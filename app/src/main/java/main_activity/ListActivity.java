@@ -24,7 +24,11 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        userList = new ArrayList<>();
+        DBHandler db = new DBHandler(this);
+        userList = db.getUsers();
+
+        //Prac 4
+        /*userList = new ArrayList<>();
         for(int i=0; i<20; i++)
         {
             User u = new User();
@@ -32,7 +36,7 @@ public class ListActivity extends AppCompatActivity {
             u.description = "Description " + new Random().nextInt();
             u.followed = new Random().nextInt()%2 == 0;
             userList.add(u);
-        }
+        }*/
 
         RecyclerView rv = findViewById(R.id.recyclerView);
         ItemsAdapter itemsAdapter = new ItemsAdapter(userList);

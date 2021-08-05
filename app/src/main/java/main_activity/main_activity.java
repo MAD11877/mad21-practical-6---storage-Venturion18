@@ -50,6 +50,8 @@ public class main_activity extends AppCompatActivity {
         else
             Toast.makeText(this,"Unfollowed", Toast.LENGTH_SHORT).show();
         setFollowBtn();
+        DBHandler db = new DBHandler(this);
+        db.updateUser(u);
     }
 
     @Override
